@@ -19,8 +19,9 @@
     <nav id="header">
       <div class="nav-logo">
         <!--<p class="nav-name">Logo</p>-->
-        <img src="logo.png" alt="Logo" class="nav-img">
-      
+        <img src="logo.png" alt="Logo" class="nav-img" id="logo-light">
+        <img src="logodarkmode.png" alt="Logo" class="nav-img" id="logo-dark" style="display: none;">
+
       </div>
       <div class="nav-menu" id="myNavMenu">
         <ul class="nav_menu_list">
@@ -42,14 +43,16 @@
           </li>
         </ul>
       </div>
-      <div class="mode">
-        <div class="moon-sun" id="toggle-switch">
-            <i class="fa fa-moon" id="moon"></i>
-            <i class="fa fa-sun" id="sun"></i>
+      <div class="nav-controls">
+        <div class="mode">
+          <div class="moon-sun" id="toggle-switch">
+              <i class="fa fa-moon" id="moon"></i>
+              <i class="fa fa-sun" id="sun"></i>
+          </div>
         </div>
-    </div>
-      <div class="nav-menu-btn">
-        <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        <div class="nav-menu-btn">
+          <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
       </div>
     </nav>
 
@@ -191,25 +194,29 @@
           </div>
         -->
   
-          <div class="project-box">    
+          <a href="https://github.com/Fannycruz1" target="_blank" rel="noopener noreferrer" class="project-box-link">
+            <div class="project-box">    
+              <i class="uil uil-briefcase-alt"></i>
+              <h3>Completed</h3>
+              <label>Git Hub Projects</label>
+            </div>
+          </a>
           
-            <i class="uil uil-briefcase-alt"></i>
-            <h3><a href="https://github.com/Fannycruz1" target="_blank" id="box-button"  rel="noopener noreferrer">Completed</a></h3>
-            <label>Git Hub Projects</label>
-          </div>
+          <a href="visualizing_data_qs.pdf" download="FannyCruz_AWSvisual.pdf" target="_blank" class="project-box-link">
+            <div class="project-box">
+              <i class="uil uil-cloud-computing"></i>
+              <h3>Experience</h3>
+              <label>AWS</label>
+            </div>
+          </a>
           
-          
-          <div class="project-box">
-            <i class="uil uil-cloud-computing"></i>
-            <h3><a href="visualizing_data_qs.pdf" download="FannyCruz_AWSvisual.pdf" target="_blank">Experience</a></h3>
-            <label>AWS</label>
-          </div>
-          <div class="project-box">
-            <i class="uil uil-book"></i>
-            <!--<h3><a href="https://github.com/Fannycruz1/web_scrapingbooks" target="_blank" id="box-button"  rel="noopener noreferrer">Currently</a></h3>-->
-            <h3><a href="src/index.html" target="_blank" id="box-button"  rel="noopener noreferrer">Currently</a></h3>
-            <label>What I Am Working On</label>
-          </div>
+          <a href="src/index.html" target="_blank" rel="noopener noreferrer" class="project-box-link">
+            <div class="project-box">
+              <i class="uil uil-book"></i>
+              <h3>Currently</h3>
+              <label>What I Am Working On</label>
+            </div>
+          </a>
         </div>
       </section>
 

@@ -11,42 +11,118 @@
 }
 
 :root {
-  --body-color: rgb(250, 250, 250);
+  /* Light mode colors */
+  --body-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --body-solid: #f8fafc;
   --color-white: rgb(255, 255, 255);
   --text-color-second: rgb(38, 37, 37);
   --first-color: rgb(110, 87, 224);
   --first-color-hover: rgb(40, 91, 212);
   --first-shadow-color: rgba(0, 0, 0, 0.1);
 
-  --box-color: #fff;
-  --nav-color: #fff;
+  --box-color: rgba(255, 255, 255, 0.95);
+  --nav-color: rgba(255, 255, 255, 0.98);
   --nav-icon: #000;
   --logo-color: #000;
 
   --color-white: #242526;
-  --text-color: #444444;
+  --text-color: #2d3748;
 
   --icon-color: #242526;
   --mode-color: #ccc;
 }
 body {
   background: var(--body-color);
+  background-attachment: fixed;
+  min-height: 100vh;
+  background-repeat: no-repeat;
 }
 body.dark {
-  --body-color: #202425;
-  --box-color: #fff;
+  /* Dark mode colors */
+  --body-color: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  --body-solid: #0f0f23;
+  --box-color: rgba(31, 41, 55, 0.95);
 
-  --nav-color: #262424;
+  --nav-color: rgba(15, 15, 35, 0.98);
 
   --color-white: #fff;
-  --text-color: #fff;
+  --text-color: #e2e8f0;
 
   --nav-icon: #fff;
   --logo-color: #fff;
 
   --icon-color: #8749f2;
-  --mode-color: #fff; 
+  --mode-color: #fff;
   
+  --first-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode button styles */
+body.dark .btn {
+  background: #fff !important;
+  color: #8749f2 !important;
+  border: 2px solid #8749f2 !important;
+}
+
+body.dark .btn:hover {
+  background: #f8f9fa !important;
+  color: #6f3bd6 !important;
+  border-color: #6f3bd6 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(135, 73, 242, 0.3);
+}
+
+body.dark .about-me-btn {
+  background: #fff !important;
+  color: #8749f2 !important;
+  border: 2px solid #8749f2 !important;
+}
+
+body.dark .about-me-btn:hover {
+  background: #f8f9fa !important;
+  color: #6f3bd6 !important;
+  border-color: #6f3bd6 !important;
+}
+
+body.dark .form-button > .btn {
+  background: #fff !important;
+  color: #8749f2 !important;
+  border: 2px solid #8749f2 !important;
+}
+
+body.dark .form-button > .btn:hover {
+  background: #f8f9fa !important;
+  color: #6f3bd6 !important;
+  border-color: #6f3bd6 !important;
+}
+
+/* Dark mode contact section text */
+body.dark .contact-info > h2 {
+  color: #fff !important;
+}
+
+body.dark .contact-info > p {
+  color: #fff !important;
+}
+
+body.dark .contact-info p > i {
+  color: #fff !important;
+}
+
+/* Dark mode form placeholder text */
+body.dark .input-field::placeholder {
+  color: #fff !important;
+  opacity: 0.8;
+}
+
+body.dark .input-subject::placeholder {
+  color: #fff !important;
+  opacity: 0.8;
+}
+
+body.dark #messageBox::placeholder {
+  color: #fff !important;
+  opacity: 0.8;
 }
 
 .nav-img {
@@ -84,8 +160,11 @@ nav {
   height: 90px;
   line-height: 100px;
   background: var(--nav-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-inline: 10vw;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   z-index: 100;
 }
 
@@ -122,10 +201,9 @@ nav {
 }
 .nav-menu-btn {
   display: none;
-  /* new code added below */
-  position:absolute;               /* Adjust the vertical position */
-  right: 10px;             /* Adjust the horizontal position */
-  z-index: 1000; 
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px; 
   /* added code */
   line-height: 3.25;
 
@@ -161,11 +239,17 @@ nav {
 
 
 
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
 .mode {
   display: flex;
   align-items: center;
-  /* used to be 10% */
-  margin-right: -7%;
+  justify-content: center;
 }
 
 
@@ -562,10 +646,9 @@ h3 {
 .project-container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-
 }
 
 a {
@@ -581,14 +664,24 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 30%;
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
   height: 250px;
-  background: transparent;
-  border: 2px solid #fff;
+  background: var(--box-color);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 .project-box > i {
   font-size: 50px;
@@ -619,6 +712,15 @@ a {
 .project-box:hover.project-box > label {
   color: #fff;
   z-index: 2;
+}
+
+.project-box-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
 }
 
 .top-header span {
@@ -677,8 +779,10 @@ a {
 }
 .form-inputs {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   width: 100%;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 .input-field {
   width: 100%;
@@ -728,6 +832,14 @@ a {
   
 
 }
+.text-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+}
+
 .input-subject {
   width: 100%;
   height: 55px;
@@ -735,21 +847,32 @@ a {
   border: 2px solid #aaa;
   border-radius: 10px;
   padding-inline: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   outline: none;
 }
 
+
+.form-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 .form-button > .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 40%;
   border: none;
   background: #8749f2;
-  padding: 10px 20px;
+  padding: 12px 30px;
   border-radius: 30px;
   color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-button > .btn:hover {
+  background: #6f3bd6;
 }
 
 .form-button i {
@@ -838,7 +961,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    
   }
   .featured-box {
     flex-direction: column;
@@ -886,14 +1008,23 @@ footer {
     justify-content: center;
   }
   .project-box {
-    width: 80%;
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
   }
+  .project-box-link {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+  }
+  .nav-controls {
+    gap: 10px;
+  }
+  
   .mode {
     display: flex;
     align-items: center;
-    /* used to be 95% */
-    margin-left: 90%;
-}
+  }
 }
 
 /* ----- 540px / RESPONSIVE ----- */
@@ -903,7 +1034,14 @@ footer {
     font-size: 40px;
   }
   .project-box {
+    flex: none;
     width: 100%;
+    max-width: none;
+  }
+  .project-box-link {
+    flex: none;
+    width: 100%;
+    max-width: none;
   }
   .form-inputs {
     flex-direction: column;
@@ -911,12 +1049,19 @@ footer {
   .input-field {
     width: 100%;
   }
-  .mode {
-    margin-left: 80%;
-  /* 50%  */
-}}
+  .nav-controls {
+    gap: 8px;
+  }
+}
 
 #messageBox {
-  min-height: 210px; /* Set an initial minimum height for the message box */ /* Prevent default resize control (optional, based on preference) */
-  /*overflow: hidden; /* Hide scrollbars when not necessary */ 
+  width: 100%;
+  min-height: 150px;
+  background: transparent;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+  padding: 20px;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
 }

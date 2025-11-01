@@ -33,10 +33,21 @@ var typingEffect = new Typed(".typedText", {
 });
 
 const body = document.querySelector("body"),
-toggleSwitch = document.getElementById("toggle-switch");
+toggleSwitch = document.getElementById("toggle-switch"),
+logoLight = document.getElementById("logo-light"),
+logoDark = document.getElementById("logo-dark");
 
 toggleSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
+
+    // Toggle logo visibility based on dark mode
+    if (body.classList.contains("dark")) {
+        logoLight.style.display = "none";
+        logoDark.style.display = "flex";
+    } else {
+        logoLight.style.display = "flex";
+        logoDark.style.display = "none";
+    }
 })
 
 /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
